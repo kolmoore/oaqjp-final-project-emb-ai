@@ -22,6 +22,9 @@ def sent_analyzer():
 
     emotions = emotion_detector(text_to_analyze)
 
+    if emotions['dominant_emotion'] is None:
+        return "Invaid text! Please try again"
+
     return (f"For the given statement, the system response is "
             f"'anger': {emotions['anger']}, 'disgust': {emotions['disgust']}, "
             f"'fear': {emotions['fear']}, 'joy': {emotions['joy']} and "
